@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "prod": "cross-env NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,9 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-async-errors": "^2.1.2",
     "mongoose": "^5.0.12",
+    "mongoose-mongodb-errors": "0.0.2",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.2"
   }
