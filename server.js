@@ -10,6 +10,7 @@ require("./mongo");
 
 //Models
 require("./model/Post");
+require("./model/Comment");
 
 //Middleware
 app.use(bodyParser.json()).use(morgan());
