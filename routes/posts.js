@@ -65,12 +65,29 @@ router.post("/:postId/comment", async (req, res) => {
 });
 
 //Read a Comment
-
 router.get("/:postId/comment", async (req, res) => {
   const post = await Post.findOne({ _id: req.params.postId }).populate(
     "comments"
   );
   res.send(post);
+});
+
+//Edit a Comment
+router.put("/comment/:commentId", async (req, res) => {
+  const comment = await Comment.findOneAndUpdate(
+    {
+      _id: req.params.commentId
+    },
+    req.body,
+    { new: true, runValidators: true }
+  );
+
+  res.send(comment);
+});
+
+router.delete("/comment/:commentId", async (req, res) => {
+  await Comment.findByIdAndRemove(req.params.commentId);
+  res.send({ message: "Comment Successfully Deleted" });
 });
 
 module.exports = router;

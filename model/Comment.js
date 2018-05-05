@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const comment_schema = new mongoose.Schema({
   content: {
     type: String,
-    require: "Content is Required"
+    required: "Content is Required"
   },
   post: {
     type: mongoose.Schema.Types.ObjectId,
